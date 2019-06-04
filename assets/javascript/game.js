@@ -16,12 +16,42 @@
 
 // 9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
 
-
 // Variables  ( wins , losses , guessLeft , userGuess , computerGuess)
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var userGuess = [];
+var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+// This uses the a number to grab the letter in the computerguess array to generate random choice 
+lettersGuessed = computerGuess[Math.floor(Math.random() * letters.length)];
+console.log(lettersGuessed);
 
 // Win if statement if wins(userGuess === computerGuess)
-    //wins increases by one  and updates on screen 
+document.onkeyup = function (event) {
+
+    if( userGuess === computerGuess) {
+        wins++;
+    } else {
+        losses--;
+    }
+    if(guessesLeft = 0) {
+        losses++;
+    }
+    // html sections  these are the call ID's for each section
+    document.getElementById('wins') = "Wins: " + wins;
+    document.getElementById('losses') = "Losses: " + losses;
+    document.getElementById('guessesLeft') = "Guesses Left: " + guessesleft;
+    document.getElementById('userGuess') = "Guessed: " + guessed;
+    document.getElementById('computerGuess') = "Comp Guess: " + computerGuess;
+}
+
+
+//
+
+
+//wins increases by one  and updates on screen 
 //Loss if losses(userGuess !== computerGuess)
-    // loss increases by one and updates screen
+// loss increases by one and updates screen
 
 // Reset function when guesses left has to change and guesses so far has to be emptied . 

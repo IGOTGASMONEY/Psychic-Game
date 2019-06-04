@@ -7,7 +7,8 @@
     <title>Psychic Game</title>
 </head>
 <body>
-
+    
+    
     
     <div id= "game">
         <h1>The Psychic Game</h1>
@@ -16,23 +17,16 @@
         <p>Losses:</p>
         <p>Guess Left:</p>
         <p>Guesses made so far :</p>
-    </div>
-
-
-    <script type="text/javascript">
+        </div>
+        
+        
+        <script type="text/javascript" src = "assets/javascript/game.js">
     
-    var wins = 0;
-    var Losses = 0; 
-    var numGuesses = 9;
-    var guessChoices = [];
-    var computerChoices = [ "a" , "b" , "c" , "d" , "e", "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z"];
     
-    document.onkeyup = function(event) {
-
-        var userGuess = event.key;
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        var Guesses = [ "a" , "b" , "c" , "d" , "e", "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z"];3
-    }
-    </script>
+    
+    
+    
+    
+        </script>
 </body>
 </html>
