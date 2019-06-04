@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game</title>
+</head>
+<body>
+
+    
+    <div id= "game">
+        <h1>The Psychic Game</h1>
+        <p> Guess what letter I'm thinking of</p>
+        <p>Wins:</p>
+        <p>Losses:</p>
+        <p>Guess Left:</p>
+        <p>Guesses made so far :</p>
+    </div>
+
+
+    <script type="text/javascript">
+    
+    var wins = 0;
+    var Losses = 0; 
+    var numGuesses = 9;
+    var guessChoices = [];
+    var computerChoices = [ "a" , "b" , "c" , "d" , "e", "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z"];
+    
+    document.onkeyup = function(event) {
+
+        var userGuess = event.key;
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        var Guesses = [ "a" , "b" , "c" , "d" , "e", "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z"];3
+    }
+    </script>
+</body>
+</html>
