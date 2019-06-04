@@ -23,27 +23,51 @@ var guessesLeft = 9;
 var userGuess = [];
 var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// This uses the a number to grab the letter in the computerguess array to generate random choice 
-lettersGuessed = computerGuess[Math.floor(Math.random() * letters.length)];
-console.log(lettersGuessed);
+// This uses the a number to grab the letter in the computerguess array to generate random choice . This displays the array in the console 
+lettersGuessed = computerGuess[Math.floor(Math.random() * computerGuess.length)];
+console.log(computerGuess);
+
+
+//This function will tell you the guesses you have made so far 
+var newuserGuess = function() {
+    document.getElementById("guessesLeft").html  = "Guesses so far: " + userGuess.join(",");
+}
+
+var guessLeft = function() {
+    document.getElementById("guessesLeft").html = "Guesses Left: " + guessesLeft;
+}
+
+var game = function() {
+    userGuess = [];
+    guessesLeft = 9;
+    newuserGuess ();
+    guessLeft ();
+
+}
+
 
 // Win if statement if wins(userGuess === computerGuess)
 document.onkeyup = function (event) {
+
+    var userGuess = event.key;
 
     if( userGuess === computerGuess) {
         wins++;
     } else {
         losses--;
     }
-    if(guessesLeft = 0) {
+    if(guessesLeft === 0) {
         losses++;
+    } else if ( guessesLeft === 0 ) {
+        losses++;
+        game();
     }
-    // html sections  these are the call ID's for each section
-    document.getElementById('wins') = "Wins: " + wins;
-    document.getElementById('losses') = "Losses: " + losses;
-    document.getElementById('guessesLeft') = "Guesses Left: " + guessesleft;
-    document.getElementById('userGuess') = "Guessed: " + guessed;
-    document.getElementById('computerGuess') = "Comp Guess: " + computerGuess;
+    // html sections  these are the call ID's for each section when guesses are made these id's will be used 
+    // document.getElementById('wins') = "Wins: " + wins;
+    // document.getElementById('losses') = "Losses: " + losses;
+    // document.getElementById('guessesLeft') = "Guesses Left: " + guessesleft;
+    // document.getElementById('userGuess') = "Guessed: " + guessed;
+    // document.getElementById('computerGuess') = "Comp Guess: " + computerGuess;
 }
 
 
