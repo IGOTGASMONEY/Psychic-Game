@@ -29,11 +29,11 @@ console.log(computerGuess);
 
 
 //This function will tell you the guesses you have made so far 
-var newuserGuess = function() {
-    document.getElementById("guessesLeft").html  = "Guesses so far: " + userGuess.join(",");
+var newuserGuess = function () {
+    document.getElementById("guessesLeft").html = "Guesses so far: " + userGuess;
 }
 
-var guessLeft = function() {
+var guessLeft = function () {
     document.getElementById("guessesLeft").html = "Guesses Left: " + guessesLeft;
 }
 
@@ -49,30 +49,33 @@ document.onkeyup = function (event) {
     document.getElementById('guess').textContent = userGuess;
 
     //Add letters to array of usedLetters
-usedLetters.push(userGuess)
-console.log( usedLetters);
- document.getElementById("guessesMade").textContent = usedLetters;
+    usedLetters.push(userGuess)
+    console.log(usedLetters);
+    document.getElementById("guessesMade").textContent = usedLetters;
 
 
-    if( userGuess === computerGuess) {
-        console.log( "You Win !");
-        
-        wins++;
+    if (userGuess === computerGuess) {
+        console.log("You Win !");
+        document.getElementById('win').textContent =  + wins; // this line prints the amount of wins 
+
+        wins++; // this counts the amount of wins
         Reset();
     } else {
         console.log("Try Again!");
         // alert ("Incorrect Guess Please Try Again")
-        guessesLeft--;  // guesses left print to screen ( work on )
-
+        guessesLeft--; // guesses left print to screen ( work on )
+        document.getElementById('loss').textContent =  + losses; // prints out how many times the player has lost
     }
-    if(guessesLeft === 0) {
+    if (guessesLeft === 0) {
         console.log("YOU LOST")
         losses++; // losses print to screen
-      Reset();  
-    } 
-    
-   
+        document.getElementById('left').textContent =  - guessesLeft; //prints out the amount of guesses left 
+        Reset();
+    }
+
+
 }
+
 function Reset() {
     guessesLeft = 9;
     usedLetters = [];
