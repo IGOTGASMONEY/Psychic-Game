@@ -20,11 +20,11 @@
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var userGuess = [];
-var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var usedLetters = [];
+var computerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// This uses the a number to grab the letter in the computerguess array to generate random choice . This displays the array in the console 
-lettersGuessed = computerGuess[Math.floor(Math.random() * computerGuess.length)];
+// Chooses a random letter from the array !
+var computerGuess = computerLetters[Math.floor(Math.random() * computerLetters.length)];
 console.log(computerGuess);
 
 
@@ -37,41 +37,50 @@ var guessLeft = function() {
     document.getElementById("guessesLeft").html = "Guesses Left: " + guessesLeft;
 }
 
-var game = function() {
-    userGuess = [];
-    guessesLeft = 9;
-    newuserGuess ();
-    guessLeft ();
 
-}
 
 
 // Win if statement if wins(userGuess === computerGuess)
 document.onkeyup = function (event) {
 
     var userGuess = event.key;
+    console.log("userGuess" + userGuess)
+
+    document.getElementById('guess').textContent = userGuess;
+
+    //Add letters to array of usedLetters
+usedLetters.push(userGuess)
+console.log( usedLetters);
+ document.getElementById("guessesMade").textContent = usedLetters;
+
 
     if( userGuess === computerGuess) {
+        console.log( "You Win !");
+        
         wins++;
+        Reset();
     } else {
-        losses--;
+        console.log("Try Again!");
+        // alert ("Incorrect Guess Please Try Again")
+        guessesLeft--;  // guesses left print to screen ( work on )
+
     }
     if(guessesLeft === 0) {
-        losses++;
-    } else if ( guessesLeft === 0 ) {
-        losses++;
-        game();
-    }
-    // html sections  these are the call ID's for each section when guesses are made these id's will be used 
-    // document.getElementById('wins') = "Wins: " + wins;
-    // document.getElementById('losses') = "Losses: " + losses;
-    // document.getElementById('guessesLeft') = "Guesses Left: " + guessesleft;
-    // document.getElementById('userGuess') = "Guessed: " + guessed;
-    // document.getElementById('computerGuess') = "Comp Guess: " + computerGuess;
+        console.log("YOU LOST")
+        losses++; // losses print to screen
+      Reset();  
+    } 
+    
+   
 }
+function Reset() {
+    guessesLeft = 9;
+    usedLetters = [];
+    console.log("RESET");
 
-
-//
+}
+// clear html in reset . 
+// guess made, user guess , guess left ;;
 
 
 //wins increases by one  and updates on screen 
